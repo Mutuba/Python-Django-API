@@ -24,6 +24,12 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('first_name', 'last_name', 'phone_number', 'age', 'gender')
 
 
+class RegistrationSerializer(serializers.Serializer):
+        # ...
+    email = serializers.EmailField(
+        validators=[UniqueValidator(queryset=User.objects.all())])
+
+
 class UserRegistrationSerializer(serializers.ModelSerializer):
 
     profile = UserSerializer(required=False)

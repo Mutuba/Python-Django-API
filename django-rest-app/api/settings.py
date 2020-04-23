@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'api.apps.user',
     'api.apps.profiles',
+    'api.apps.core',
 
 ]
 
@@ -173,4 +174,8 @@ JWT_AUTH = {
 
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
     'JWT_AUTH_COOKIE': None,
+}
+REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'api.apps.core.exceptions.core_exception_handler',
+    'NON_FIELD_ERRORS_KEY': 'error',
 }
